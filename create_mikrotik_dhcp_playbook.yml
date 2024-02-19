@@ -1,0 +1,9 @@
+---
+- hosts: vdimkt
+  connection: network_cli
+  become: yes
+#  become_method: enable
+  gather_facts: no
+
+  roles:
+     - create_dhcp_mikrotik
