@@ -1,10 +1,8 @@
---- 
-
-- name: create DHCP server
-  routeros_command:
-       commands:
-             - /interface vlan add interface=ether2-VDI-GW-Trunk  vlan-id="{{vlan}}" name="{{vlanname}}" arp=enabled
-             - /ip address add interface="{{vlanname}}" address="{{gwipsub}}"
-             - /ip pool add name="{{poolname}}" ranges="{{poolrange}}"
-             - /ip dhcp-server add name="{{dhcpname}}" interface="{{vlanname}}" lease-time=1000d address-pool="{{poolname}}" disabled=no
-             - /ip dhcp-server network add address="{{subnet}}" gateway="{{gwip}}" dns-server=x.x.x.x,y.y.y.y
+vlan: #vlan_ID
+vlanname: #VLAN_name
+gwip: #vlan_Gateway
+gwipsub: #vlan_Network_ID
+poolname: #Pool_name
+dhcpname: #dhcp_name
+poolrange: #pool_range
+subnet: #pool_subnet
